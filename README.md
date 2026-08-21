@@ -12,6 +12,8 @@
 
 Designed following modern SaaS UI/UX principles, clean architecture, and responsive layouts, JobHub provides a complete recruitment workflow from opportunity discovery and applicant screening to real-time status updates and platform administration.
 
+- **GitHub Repository**: [https://github.com/nirmalpatil132/Job-Hub](https://github.com/nirmalpatil132/Job-Hub)
+
 ---
 
 ## 👥 Triple-Role User Architecture
@@ -131,12 +133,13 @@ jobhub/
 │   ├── supabase/
 │   │   ├── client.ts             # Supabase browser client
 │   ├── data/
-│   │   └── mockData.ts           # Rich seed dataset (35+ jobs, 8+ companies, 20+ users, 50+ applications)
+│   │   └── mockData.ts           # Rich seed dataset (36 jobs, 8 companies, 22 profiles, 20+ applications)
 │   ├── context/
 │   │   ├── JobHubContext.tsx     # Master reactive state provider
 │   │   └── ToastContext.tsx      # Animated toast notification manager
 │   └── utils/
 │       └── index.ts              # Currency formatters, date helpers, profile completion
+├── public/                       # Static assets
 ├── supabase/
 │   ├── migrations/
 │   │   └── 01_initial_schema.sql # Complete PostgreSQL DDL with RLS policies & triggers
@@ -168,8 +171,8 @@ For rapid evaluation and testing during demonstrations, use the quick 1-click lo
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/jobhub.git
-cd jobhub
+git clone https://github.com/nirmalpatil132/Job-Hub.git
+cd Job-Hub
 ```
 
 ### 2. Install dependencies
@@ -215,26 +218,15 @@ To set up a live Supabase PostgreSQL database:
 1. Push your repository to **GitHub**:
    ```bash
    git add .
-   git commit -m "feat: complete JobHub job portal system"
+   git commit -m "feat: complete JobHub job portal"
    git push origin main
    ```
 2. Log into [vercel.com](https://vercel.com) and click **"Add New" → "Project"**.
-3. Import your `jobhub` repository.
+3. Import your `nirmalpatil132/Job-Hub` repository.
 4. In the **Environment Variables** section, add:
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 5. Click **Deploy**. Vercel will build and publish your project with an active production URL.
-
----
-
-## 🧪 Quality & Verification Checklist
-
-- [x] **Strict Type Safety**: 0 TypeScript compilation errors (`npm run build` succeeds).
-- [x] **Full Responsiveness**: Mobile (320px–414px), Tablet (768px), and Desktop (1024px–1440px+).
-- [x] **No Dead Buttons**: Every action, modal, toggle, and filter is functional.
-- [x] **Duplicate Prevention**: Prevents duplicate applications and duplicate saved jobs.
-- [x] **Cross-Role Notifications**: Recruiter hiring stage changes trigger real-time applicant alerts.
-- [x] **Security**: No secrets committed, clean `.env.example` provided.
 
 ---
 
