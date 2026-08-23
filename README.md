@@ -6,13 +6,18 @@
 
 ---
 
+## 🌐 Live Website & Links
+
+- 🌐 **Live Website (GitHub Pages)**: [https://nirmalpatil132.github.io/Job-Hub/](https://nirmalpatil132.github.io/Job-Hub/)
+- 💻 **GitHub Repository**: [https://github.com/nirmalpatil132/Job-Hub](https://github.com/nirmalpatil132/Job-Hub)
+
+---
+
 ## 🚀 Project Overview
 
-**JobHub** is a comprehensive, production-grade web application built to connect ambitious job seekers, students, and freshers with leading tech employers and talent acquisition teams. 
+**JobHub** is a comprehensive, student-friendly web application built to connect ambitious job seekers, students, and freshers with leading tech employers and talent acquisition teams.
 
 Designed following modern SaaS UI/UX principles, clean architecture, and responsive layouts, JobHub provides a complete recruitment workflow from opportunity discovery and applicant screening to real-time status updates and platform administration.
-
-- **GitHub Repository**: [https://github.com/nirmalpatil132/Job-Hub](https://github.com/nirmalpatil132/Job-Hub)
 
 ---
 
@@ -47,12 +52,11 @@ JobHub features three distinct user roles with tailored interfaces and capabilit
 
 ## 🛠️ Technology Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Server Components & Client Hooks)
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Static Export to GitHub Pages)
 - **Frontend Core**: [React 19](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) with centralized design tokens & [Poppins](https://fonts.google.com/specimen/Poppins) typography
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Database & Auth**: [Supabase](https://supabase.com/) PostgreSQL + Row Level Security (RLS) policies
-- **Storage Layer**: Hybrid Reactive Data Store (Runs zero-configuration out-of-the-box locally and on Vercel preview, seamlessly connects to Supabase when environment keys are provided)
+- **Data & State**: Client-Side Reactive Data Store (Runs 100% zero-configuration in the browser with `localStorage` persistence)
 - **Micro-Interactions**: Canvas-Confetti celebratory animations
 
 ---
@@ -78,6 +82,9 @@ JobHub features three distinct user roles with tailored interfaces and capabilit
 
 ```
 jobhub/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml            # GitHub Actions workflow for GitHub Pages
 ├── app/
 │   ├── layout.tsx                # Root layout (Poppins font, Providers, Navbar, Footer)
 │   ├── globals.css               # Design system baseline & scrollbars
@@ -130,8 +137,6 @@ jobhub/
 │   └── companies/
 │       └── CompanyCard.tsx       # Company showcase card
 ├── lib/
-│   ├── supabase/
-│   │   ├── client.ts             # Supabase browser client
 │   ├── data/
 │   │   └── mockData.ts           # Rich seed dataset (36 jobs, 8 companies, 22 profiles, 20+ applications)
 │   ├── context/
@@ -140,12 +145,6 @@ jobhub/
 │   └── utils/
 │       └── index.ts              # Currency formatters, date helpers, profile completion
 ├── public/                       # Static assets
-├── supabase/
-│   ├── migrations/
-│   │   └── 01_initial_schema.sql # Complete PostgreSQL DDL with RLS policies & triggers
-│   └── seed/
-│       └── seed.sql              # SQL seed script for database initialization
-├── .env.example
 ├── README.md
 ├── package.json
 └── tsconfig.json
@@ -180,20 +179,7 @@ cd Job-Hub
 npm install
 ```
 
-### 3. Environment Variables
-Create a `.env.local` file by copying `.env.example`:
-```bash
-cp .env.example .env.local
-```
-
-Configure your Supabase credentials (optional for initial local evaluation):
-```env
-NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
-```
-
-### 4. Run Development Server
+### 3. Run Development Server
 ```bash
 npm run dev
 ```
@@ -201,34 +187,23 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🗄️ Supabase PostgreSQL Setup
+## 🌐 GitHub Pages Deployment Instructions
 
-To set up a live Supabase PostgreSQL database:
+This project is configured for static export to **GitHub Pages**:
 
-1. Create a free project at [supabase.com](https://supabase.com).
-2. Go to the **SQL Editor** in your Supabase project dashboard.
-3. Open `supabase/migrations/01_initial_schema.sql` and run the script to create tables, indexes, triggers, and Row Level Security policies.
-4. Run `supabase/seed/seed.sql` to populate initial demo records.
-5. Copy your Project URL and Anon API key into `.env.local` and in Vercel Environment Variables.
-
----
-
-## 🚀 Deployment to Vercel
-
-1. Push your repository to **GitHub**:
+1. Enable GitHub Pages in your repository settings:
+   - Go to **Settings → Pages** on your GitHub repository.
+   - Under **Build and deployment → Source**, select **GitHub Actions**.
+2. Push your changes to the `main` branch:
    ```bash
    git add .
-   git commit -m "feat: complete JobHub job portal"
+   git commit -m "feat: configure static export for GitHub Pages deployment"
    git push origin main
    ```
-2. Log into [vercel.com](https://vercel.com) and click **"Add New" → "Project"**.
-3. Import your `nirmalpatil132/Job-Hub` repository.
-4. In the **Environment Variables** section, add:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-5. Click **Deploy**. Vercel will build and publish your project with an active production URL.
+3. GitHub Actions will automatically build and publish your static website to:
+   **[https://nirmalpatil132.github.io/Job-Hub/](https://nirmalpatil132.github.io/Job-Hub/)**
 
 ---
 
 ## 🎓 Academic Notice
-This project is developed as a **1st-Year BCA Academic Project** demonstrating full-stack web engineering, database architecture, responsive UI design, and role-based access control.
+This project is developed as a **1st-Year BCA Academic Project** demonstrating full-stack web engineering, client-side state management, responsive UI design, and role-based access control.
